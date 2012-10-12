@@ -1,0 +1,54 @@
+[submodule "vimconfig/vim/bundle/vim-fugitive"]
+	path = vimconfig/vim/bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "vimconfig/vim/bundle/vim-cucumber"]
+	path = vimconfig/vim/bundle/vim-cucumber
+	url = https://github.com/tpope/vim-cucumber.git
+[submodule "vimconfig/vim/bundle/vim-surround"]
+	path = vimconfig/vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vimconfig/vim/bundle/vim-repeat"]
+	path = vimconfig/vim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "vimconfig/vim/bundle/vim-rake"]
+	path = vimconfig/vim/bundle/vim-rake
+	url = https://github.com/tpope/vim-rake.git
+[submodule "vimconfig/vim/bundle/vim-bundler"]
+	path = vimconfig/vim/bundle/vim-bundler
+	url = https://github.com/tpope/vim-bundler.git
+[submodule "vimconfig/vim/bundle/vim-colors-solarized"]
+	path = vimconfig/vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "vimconfig/vim/bundle/ctrlp"]
+	path = vimconfig/vim/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vimconfig/vim/bundle/tcomment_vim"]
+	path = vimconfig/vim/bundle/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "vimconfig/vim/bundle/gundo"]
+	path = vimconfig/vim/bundle/gundo
+	url = https://github.com/sjl/gundo.vim.git
+[submodule "vimconfig/vim/bundle/vim-markdown"]
+	path = vimconfig/vim/bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
+[submodule "vimconfig/vim/bundle/ack-vim"]
+	path = vimconfig/vim/bundle/ack-vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "vimconfig/vim/bundle/The-NERD-tree"]
+	path = vimconfig/vim/bundle/The-NERD-tree
+	url = https://github.com/vim-scripts/The-NERD-tree.git
+[submodule "vimconfig/vim/bundle/bufexplorer"]
+	path = vimconfig/vim/bundle/bufexplorer
+	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "vimconfig/vim/bundle/vim-colorschemes"]
+	path = vimconfig/vim/bundle/vim-colorschemes
+	url = git@github.com:flazz/vim-colorschemes.git
+[submodule "vimconfig/vim/bundle/vim-rails"]
+	path = vimconfig/vim/bundle/vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "vimconfig/vim/bundle/vim-textobj-user"]
+	path = vimconfig/vim/bundle/vim-textobj-user
+	url = git://github.com/kana/vim-textobj-user.git
+[submodule "vimconfig/vim/bundle/vim-textobj-rubyblock"]
+	path = vimconfig/vim/bundle/vim-textobj-rubyblock
+	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
