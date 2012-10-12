@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+unless Process.uid == 0
+  STDERR.puts("ERROR: You must run this script as root (try using sudo).")
+  exit(1)
+end
+
+$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), '../lib')))
+require 'ls_pair/local_user'
+
+def prompt_for_username
+  print "Enter the username with which your pair partner will log in to your system: "
+  gets.strip
+end
+
+username = ARGV[0] || prompt_for_username
+
+begin
+  LsPair::LocalUser.new(username).provision
+rescue LsPair::Exception => e
+  puts e.message
+end

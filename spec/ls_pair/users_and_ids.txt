@@ -1,0 +1,9 @@
+_update_sharing         95
+_usbmuxd                213
+_uucp                   4
+_warmd                  224
+_webauthserver          221
+_windowserver           88
+_www                    70
+daemon                  1
+foo                     511

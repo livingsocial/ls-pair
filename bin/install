@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require File.expand_path('../../lib/install_helpers', __FILE__)
+
+fetch_git_submodules
+ensure_wemux_installed
+symlink_tmux_conf_into_home
+symlink_vim_dotfiles_into_home

@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+unless Process.uid == 0
+  STDERR.puts("ERROR: You must run this script as root (try using sudo).")
+  exit(1)
+end
+
+$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), '../lib')))
+require 'ls_pair/ssh_keys'
+require 'ls_pair/local_user'
+
+begin
+  current_user = ENV['SUDO_USER']
+  users = LsPair::SshKeys.new.usernames.reject { |u| u == current_user }
+  puts "Provision local user accounts for the following users?:"
+  users.each do |u|
+    puts "    - #{u}"
+  end
+  print "(c)ontinue or (A)bort?: "
+  if gets.strip =~ /^c(ontinue)?$/i
+    users.each do |u|
+      LsPair::LocalUser.new(u).provision
+      puts "Account provisioned for #{u}."
+    end
+  end
+rescue LsPair::Exception => e
+  puts e.message
+end

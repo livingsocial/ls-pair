@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require File.expand_path('../../lib/install_helpers', __FILE__)
+
+toggle_vim_config

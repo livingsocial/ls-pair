@@ -1,0 +1,6 @@
+Tip #1 (if you read nothing else, do this):  PRESS ESCAPE COMPULSIVELY.
+
+This has two primary benefits:
+1) Your pair partner will not mock you for leaving ":wq" in the document.
+2) You can use the replay command more effectively.
+
