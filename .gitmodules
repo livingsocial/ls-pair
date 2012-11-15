@@ -52,3 +52,6 @@
 [submodule "vimconfig/vim/bundle/vim-textobj-rubyblock"]
 	path = vimconfig/vim/bundle/vim-textobj-rubyblock
 	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "vimconfig/vim/bundle/ZoomWin"]
+	path = vimconfig/vim/bundle/ZoomWin
+	url = git://github.com/vim-scripts/ZoomWin.git
