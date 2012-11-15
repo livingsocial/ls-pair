@@ -1,6 +1,6 @@
 [submodule "vimconfig/vim/bundle/vim-fugitive"]
 	path = vimconfig/vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vimconfig/vim/bundle/vim-cucumber"]
 	path = vimconfig/vim/bundle/vim-cucumber
 	url = https://github.com/tpope/vim-cucumber.git
@@ -18,7 +18,7 @@
 	url = https://github.com/tpope/vim-bundler.git
 [submodule "vimconfig/vim/bundle/vim-colors-solarized"]
 	path = vimconfig/vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vimconfig/vim/bundle/ctrlp"]
 	path = vimconfig/vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
@@ -45,13 +45,13 @@
 	url = git@github.com:flazz/vim-colorschemes.git
 [submodule "vimconfig/vim/bundle/vim-rails"]
 	path = vimconfig/vim/bundle/vim-rails
-	url = git://github.com/tpope/vim-rails.git
+	url = https://github.com/tpope/vim-rails.git
 [submodule "vimconfig/vim/bundle/vim-textobj-user"]
 	path = vimconfig/vim/bundle/vim-textobj-user
-	url = git://github.com/kana/vim-textobj-user.git
+	url = https://github.com/kana/vim-textobj-user.git
 [submodule "vimconfig/vim/bundle/vim-textobj-rubyblock"]
 	path = vimconfig/vim/bundle/vim-textobj-rubyblock
-	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
 [submodule "vimconfig/vim/bundle/ZoomWin"]
 	path = vimconfig/vim/bundle/ZoomWin
-	url = git://github.com/vim-scripts/ZoomWin.git
+	url = https://github.com/vim-scripts/ZoomWin.git
