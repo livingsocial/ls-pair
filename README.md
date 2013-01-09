@@ -87,7 +87,10 @@ coworkers with one half of an ongoing conversation.
 ## VPN
 
 LogMeIn's [Hamachi](https://secure.logmein.com/products/hamachi/) is a reliable
-way of creating ad-hoc VPNs, but it's a bit annoying to admin.
+way of creating ad-hoc VPNs, but it's a bit annoying to admin. The set up
+process is described in this
+[wiki page](https://github.com/livingsocial/ls-pair/wiki/How-to-set-up-LogMeIn-Hamachi).
+
 
 ## SSH
 
