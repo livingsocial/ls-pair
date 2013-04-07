@@ -31,8 +31,91 @@ work, so nobody has to worry about embarrassing IM notifications derailing the
 conversation.)
 
 
+# Requirements
+
+In order to pair, you'll need to setup a **[VPN](#vpn-setup)** and **[SSH](#ssh-setup)**
+
+##<a id="vpn-setup"></a>VPN
+
+LogMeIn's [Hamachi](https://secure.logmein.com/products/hamachi/) is a reliable
+way of creating ad-hoc VPNs, but it's a bit annoying to admin. The set up
+process is described in this
+[wiki page](https://github.com/livingsocial/ls-pair/wiki/How-to-set-up-LogMeIn-Hamachi).
+
+
+##<a id="ssh-setup"></a> SSH
+
+**Please enable SSH on your machine.**  In Lion, go to System
+Preferences --> Sharing and click on "Remote Login".  Make sure the box
+is checked, and under "Allow access for:", check "All users". (If you
+want to whitelist only certain users, you will need to revisit this
+preference pane each time you add an account for a new pair-partner.)
+
+
+# Set Up
+0. Decide who's going to host the session.
+
+1. Have a [VPN setup](#vpn-setup) and [SSH enabled](#ssh-enablded).
+
+2. All partners will need to clone this repository and cd into the directory.
+
+3. The pair will need to provide the host with his or her SSH public key.
+
+4. The host must add the pair partner's SSH public key to the 'public\_keys' subdirectory. The file should be named '{desired_username}.pub', where
+**'desired\_username' is the username the pair partner will use to log in
+to your machine**
+
+5. The host will need to create pair-partner accounts on his or her machine for each pair. 
+
+ This repo includes a script, `bin/create_pair_account`, that will prompt the host for a username, create the account on the host's system, and set up the
+account's '.ssh/authorized\_keys' to include the key file in
+'public_keys'. There's no need to worry about setting a password, OSX won't
+allow password-based login for this account. 
+
+ There is also a `bin/create_all_pair_accounts` command that will
+provision a pair account for each SSH key in 'public_keys'.
+
+6. Run <code>bin/install</code>
+
+# Pairing
+
+## Hosting a Session
+
+1. Open a terminal session and type <code>wemux start</code>
+
+2. Find your IP address and communicate it to your pair partner.  In
+versions of Hamachi that have a GUI client, they should be able to
+locate your machine in the GUI and right-click on its hostname, then
+select "copy IPv4 address".
+
+## Joining a Session
+
+1. SSH to {username}@{ip\_of\_partners\_machine} (using the IP address
+your pair partner gave you)
+2. Type <code>wemux pair</code>
+
+ ### Trouble Shooting 
+
+ Possible failure modes include (but are by no means limited to):
+
+ #### No wemux server to pair with on <code>wemux</code>
+  This indicates that the host has forgotten to run 'wemux start'.
+
+ #### Unknown command: pair
+  <code>pair</code> is a wemux *client* command; the pair may be logged in as a wemux
+    *host* (i.e., a user whose name is listed in the host\_list variable
+    in /usr/local/etc/wemux.conf).
+
+ #### You can see the other session, but are unable to type anything
+  * You somehow joined wemux in mirror mode, not pair mode.
+
 
 # Audio
+
+You'll probably want at least a voice channel, if not video.  (I've even
+heard some people advise running a video chat window on a completely
+separate machine, just so Skype doesn't burn up the CPU on your
+development machine.)  That's up to you.
 
 Having a high-quality audio channel is ***critical*** to remote pairing.
 Strictly speaking, this is not something the ls-pair toolkit can set up for
@@ -79,88 +162,6 @@ you'll spend a significant amount of time doing remote pairing -- you may have
 a quieter environment and a better Internet connection, and you'll feel more
 comfortable speaking up when you aren't worried about distracting your
 coworkers with one half of an ongoing conversation.
-
-
-
-# Setting Up
-
-## VPN
-
-LogMeIn's [Hamachi](https://secure.logmein.com/products/hamachi/) is a reliable
-way of creating ad-hoc VPNs, but it's a bit annoying to admin. The set up
-process is described in this
-[wiki page](https://github.com/livingsocial/ls-pair/wiki/How-to-set-up-LogMeIn-Hamachi).
-
-
-## SSH
-
-**Please enable SSH on your machine.**  In Lion, go to System
-Preferences --> Sharing and click on "Remote Login".  Make sure the box
-is checked, and under "Allow access for:", check "All users". (If you
-want to whitelist only certain users, you will need to revisit this
-preference pane each time you add an account for a new pair-partner.)
-
-You must add your pair partner's SSH public key to the 'public_keys'
-subdirectory. The file should be named '{desired_username}.pub', where
-'desired_username' is the username your pair partner will use to log in
-to your machine.
-
-## Creating Pair-Partner Accounts
-
-You need to create a new account on your machine for each person with
-whom you wish to pair. First, make sure you know which username they
-will be using and verify that there is a matching public key in the
-'public_keys' directory (see SSH above).
-
-This repo includes a script, `bin/create_pair_account`, that will prompt
-you for a username, create the account on your system, and set up the
-account's '.ssh/authorized_keys' to include the key file in
-'public_keys'. No need to worry about setting a password, OSX won't
-allow password-based login for this account.
-
-There is also a `bin/create_all_pair_accounts` command that will
-provision a pair account for each SSH key in 'public_keys'.
-
-## Other Configuration
-
-  * Clone this repository and cd into its directory
-  * Run <code>bin/install</code>
-
-
-# Pairing
-
-You'll probably want at least a voice channel, if not video.  (I've even
-heard some people advise running a video chat window on a completely
-separate machine, just so Skype doesn't burn up the CPU on your
-development machine.)  That's up to you.
-
-Decide who's going to host the pairing session.
-
-## Hosting a Session
-
-Open a terminal session and type 'wemux start'.
-
-Find your IP address and communicate it to your pair partner.  In
-versions of Hamachi that have a GUI client, they should be able to
-locate your machine in the GUI and right-click on its hostname, then
-select "copy IPv4 address".
-
-## Joining a Session
-
-SSH to {username}@{ip_of_partners_machine} (using the IP address
-your pair partner gave you), and type 'wemux pair'.
-
-Possible failure modes include (but are by no means limited to):
-
-* **"No wemux server to pair with on 'wemux'."**
-  * This indicates that your host has forgotten to run 'wemux start'.
-* **"unknown command: pair"**
-  * 'pair' is a wemux *client* command; you may be logged in as a wemux
-    *host* (i.e., a user whose name is listed in the host_list variable
-    in /usr/local/etc/wemux.conf).
-* **You can see the other session, but are unable to type anything.**
-  * You somehow joined wemux in mirror mode, not pair mode.
-
 
 
 # Other Considerations
