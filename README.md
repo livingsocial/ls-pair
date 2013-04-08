@@ -18,6 +18,76 @@ fine.  :D
 <br /><hr /><br />
 
 
+# <a href="tmux-commands"></a>A QUICK NOTE ABOUT TMUX COMMANDS
+
+When you're using tmux, it passes your keystrokes through to the
+programs it's managing for you.  In order to send commands to tmux, you
+first have to get its attention by sending it the PREFIX key.  By
+default, tmux uses Control-b as its PREFIX key, but the tmux.conf file
+included in this repository changes it to Control-\ (that's
+control-backslash).
+
+This can be confusing to first-time users, so just to be clear, here's
+what you do:
+
+1. Hold down the Control key.
+2. Press the \ or backslash key.
+3. Release the Control key.
+4. Press the 'c' key.  (This should create a new window.)
+
+Most tmux references will use the notation C-\ for Control-backslash.
+This document borrows the notation (( PREFIX x )) to represent the sequence
+"PREFIX combo, followed by x" from Brian Hogan's book about tmux:
+http://pragprog.com/book/bhtmux/tmux
+
+
+<br /><hr /><br />
+
+
+# HOWTO: Join a Session on Someone Else's Computer
+
+## Preflight Checklist:
+
+* You're able to reach your host's computer over at least one Internets:
+  * If using Hamachi, make sure it's running, and that you can see your host's machine
+    on at least one of your networks.
+
+## Takeoff:
+
+* Make sure your host has your SSH public key.
+* Open a terminal window, make the font as small as you can tolerate, and make the window
+  as big as you can tolerate (bonus points for using full-screen mode).
+* Start an audio and/or video chat session (FaceTime, G+ Hangout, iChat, Skype) with your
+  host.
+* **On your computer**, run: <code>ssh *username*@*hosts\_ip\_address*</code>
+* **On your host's computer**, run: <code>wemux pair</code>
+    * Troubleshooting:
+        * **"No wemux server to pair with on 'wemux'":** This indicates that
+          the host has not yet run ```wemux start```.  Either you're very
+          fast, or they forgot?  :)
+        * **You can see the other session, but cannot type:** You may have
+          joined wemux in *mirror mode* instead of *pair mode*.  Detach from
+          the wemux session using (( PREFIX d )) (see the section on [tmux
+          commands](#tmux-commands) if you're not sure what this means) and
+          then type ```wemux pair```.
+
+## In flight:
+
+* Pair as usual.  Air traffic control suggests using the "mine/yours" protocol to
+  negotiate control of the keyboard.  <br />(Protip: either word can be inflected as a
+  question or a statement.)
+
+## Landing:
+
+* Use (( PREFIX d )) to **D**etach from tmux on your host's computer.
+  (See the section on [tmux commands](#tmux-commands) if you're not sure what
+  this means.)
+* Type 'exit' to end the SSH session and return to your local computer.
+
+
+<br /><hr /><br />
+
+
 # HOWTO: Host a Session on Your Computer
 
 ## Preflight Checklist:
@@ -56,44 +126,10 @@ fine.  :D
 
 * If you're done with your tmux session, just exit all of the shells running inside it;
   it'll shut down once its last hosted process exits.
-* If you'd like to leave your state hanging around for later, use PREFIX, d to **D**etach.
+* If you'd like to leave your state hanging around for later, use (( PREFIX d )) to **D**etach.
   It'll stick around as long as your computer stays on.  <br />(To come back later, just run
   <code>wemux start</code> again; wemux will figure out that there's a session already
   running and reattach you to it.)
-
-
-<br /><hr /><br />
-
-
-# HOWTO: Join a Session on Someone Else's Computer
-
-## Preflight Checklist:
-
-* You're able to reach your host's computer over at least one Internets:
-  * If using Hamachi, make sure it's running, and that you can see your host's machine
-    on at least one of your networks.
-
-## Takeoff:
-
-* Make sure your host has your SSH public key.
-* Open a terminal window, make the font as small as you can tolerate, and make the window
-  as big as you can tolerate (bonus points for using full-screen mode).
-* Start an audio and/or video chat session (FaceTime, G+ Hangout, iChat, Skype) with your
-  host.
-* **On your computer**, run: <code>ssh *username*@*hosts\_ip\_address*</code>
-* **On your host's computer**, run: <code>wemux pair</code>
-
-## In flight:
-
-* Pair as usual.  Air traffic control suggests using the "mine/yours" protocol to
-  negotiate control of the keyboard.  <br />(Protip: either word can be inflected as a
-  question or a statement.)
-
-## Landing:
-
-* Hit PREFIX, followed by 'd' to **D**etach from tmux on your host's computer.
-  <br />(PREFIX should be Control-\ by default, so this is the sequence "Control-\, d" [don't type the comma])
-* Hit ^D or type 'exit' to end the SSH session and return to your local computer.
 
 
 <br /><hr /><br />
