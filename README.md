@@ -75,9 +75,7 @@ fine.  :D
 
 ## Takeoff:
 
-* Make sure your host has your SSH public key.  <br />(The easiest way to do this is to add it to
-  this repository in the <code>public_keys</code> directory with a filename of
-  <code>*username*.pub</code>.)
+* Make sure your host has your SSH public key.
 * Open a terminal window, make the font as small as you can tolerate, and make the window
   as big as you can tolerate (bonus points for using full-screen mode).
 * Start an audio and/or video chat session (FaceTime, G+ Hangout, iChat, Skype) with your
