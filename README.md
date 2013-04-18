@@ -18,6 +18,16 @@ fine.  :D
 <br /><hr /><br />
 
 
+# NEW TO (REMOTE) PAIRING?
+
+There's an excellent list of resources at
+<a href="http://pairprogramwith.me/">pairprogramwith.me</a>.
+
+# NEW TO TMUX?
+
+You may find this 10-minute <a href="http://youtu.be/wKEGA8oEWXw">tmux Quick Start
+screencast</a> helpful.
+
 # <a href="tmux-commands"></a>A QUICK NOTE ABOUT TMUX COMMANDS
 
 When you're using tmux, it passes your keystrokes through to the
