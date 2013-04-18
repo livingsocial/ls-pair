@@ -49,16 +49,16 @@ http://pragprog.com/book/bhtmux/tmux
 ## Preflight Checklist:
 
 * You're able to reach your host's computer over at least one Internets:
-  * If using Hamachi, make sure it's running, and that you can see your host's machine
-    on at least one of your networks.
+  * If using Hamachi, make sure it's running, and that you can see your host's
+    machine on at least one of your networks.
 
 ## Takeoff:
 
 * Make sure your host has your SSH public key.
-* Open a terminal window, make the font as small as you can tolerate, and make the window
-  as big as you can tolerate (bonus points for using full-screen mode).
-* Start an audio and/or video chat session (FaceTime, G+ Hangout, iChat, Skype) with your
-  host.
+* Open a terminal window, make the font as small as you can tolerate, and make the
+  window as big as you can tolerate (bonus points for using full-screen mode).
+* Start an audio and/or video chat session (FaceTime, G+ Hangout, iChat, Skype) with
+  your host.
 * **On your computer**, run: <code>ssh *username*@*hosts\_ip\_address*</code>
 * **On your host's computer**, run: <code>wemux pair</code>
     * Troubleshooting:
@@ -73,8 +73,8 @@ http://pragprog.com/book/bhtmux/tmux
 
 ## In flight:
 
-* Pair as usual.  Air traffic control suggests using the "mine/yours" protocol to
-  negotiate control of the keyboard.  <br />(Protip: either word can be inflected as a
+* Pair as usual. Air traffic control suggests using the "mine/yours" protocol to
+  negotiate control of the keyboard. <br />(Protip: either word can be inflected as a
   question or a statement.)
 
 ## Landing:
@@ -95,41 +95,42 @@ http://pragprog.com/book/bhtmux/tmux
 * You've completed basic setup (see [Setting Up](#setting-up), below).
 * You have SSH keys for all of your intended guests, and you've created accounts (see
   <code>bin/create\_all\_pair\_accounts</code>) for them to use.
-* In System Preferences, Sharing:  "Remote Login" (aka SSH) is enabled, and your guest
-  accounts are allowed to use it.  (The easiest way to ensure this is to enable it for
+* In System Preferences, Sharing: "Remote Login" (aka SSH) is enabled, and your guest
+  accounts are allowed to use it. (The easiest way to ensure this is to enable it for
   all users; if you're using a whitelist approach, you'll have to visit this screen
   every time you pair with someone new.)
 * Your computer is reachable over at least one Internets:
-  * If using Hamachi, make sure it's running, and that you've added your guest's machine
-    to at least one of your networks.
+  * If using Hamachi, make sure it's running, and that you've added your guest's
+    machine to at least one of your networks.
 
 ## Takeoff:
 
-* Open a terminal window, make the font as small as you can tolerate, and make the window
-  as big as you can tolerate (bonus points for using full-screen mode).
+* Open a terminal window, make the font as small as you can tolerate, and make the
+  window as big as you can tolerate (bonus points for using full-screen mode).
 * Run: <code>wemux start</code>
-* Start an audio and/or video chat session (FaceTime, G+ Hangout, iChat, Skype) with your
-  guest(s).  If necessary, give them the IP address they can SSH to.
-* If your terminal dimensions are larger than those of your guest(s), you'll see a border
-  appear on the right and/or bottom edge of your terminal window as soon as *they* run
-  <code>wemux pair</code>.
-* Within tmux's "status-interval" setting (5 seconds as of this writing), you'll see the
-  tmux status bar update with the usernames of all users currently in the tmux session.
+* Start an audio and/or video chat session (FaceTime, G+ Hangout, iChat, Skype) with
+  your guest(s). If necessary, give them the IP address they can SSH to.
+* If your terminal dimensions are larger than those of your guest(s), you'll see a
+  border appear on the right and/or bottom edge of your terminal window as soon as
+  *they* run <code>wemux pair</code>.
+* Within tmux's "status-interval" setting (5 seconds as of this writing), you'll see
+  the tmux status bar update with the usernames of all users currently in the tmux
+  session.
 
 ## In flight:
 
-* Pair as usual.  Air traffic control suggests using the "mine/yours" protocol to
-  negotiate control of the keyboard.  <br />(Protip: either word can be inflected as a
+* Pair as usual. Air traffic control suggests using the "mine/yours" protocol to
+  negotiate control of the keyboard. <br />(Protip: either word can be inflected as a
   question or a statement.)
 
 ## Landing:
 
-* If you're done with your tmux session, just exit all of the shells running inside it;
-  it'll shut down once its last hosted process exits.
-* If you'd like to leave your state hanging around for later, use (( PREFIX d )) to **D**etach.
-  It'll stick around as long as your computer stays on.  <br />(To come back later, just run
-  <code>wemux start</code> again; wemux will figure out that there's a session already
-  running and reattach you to it.)
+* If you're done with your tmux session, just exit all of the shells running inside
+  it; it'll shut down once its last hosted process exits.
+* If you'd like to leave your state hanging around for later, use (( PREFIX d )) to
+  **D**etach. It'll stick around as long as your computer stays on. <br />(To come
+  back later, just run <code>wemux start</code> again; wemux will figure out that
+  there's a session already running and reattach you to it.)
 
 
 <br /><hr /><br />
@@ -195,10 +196,10 @@ them up with another window, which contributes to a telepresence effect.
 
 ### VPN
 
-LogMeIn's [Hamachi](https://secure.logmein.com/products/hamachi/) is a reliable
-way of creating ad-hoc VPNs, but it's a bit annoying to admin. The set up
-process is described in this
-[wiki page](https://github.com/livingsocial/ls-pair/wiki/How-to-set-up-LogMeIn-Hamachi).
+LogMeIn's [Hamachi](https://secure.logmein.com/products/hamachi/) is a reliable way
+of creating ad-hoc VPNs, but it's a bit annoying to admin. The set up process is
+described in this [wiki
+page](https://github.com/livingsocial/ls-pair/wiki/How-to-set-up-LogMeIn-Hamachi).
 
 ## Hosts
 
