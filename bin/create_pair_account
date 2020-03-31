@@ -13,11 +13,17 @@ def prompt_for_username
   gets.strip
 end
 
-username = ARGV[0] || prompt_for_username
+def prompt_for_wemux_default_mode
+  print "Enter the default wemux mode to use ('mirror', 'pair', or 'rogue' (default 'pair'): "
+  gets.strip
+end
+
+username        = ARGV[0] || prompt_for_username
+auto_wemux_mode = ARGV[1] || prompt_for_wemux_default_mode
 
 begin
   u = LsPair::LocalUser.new(username)
-  u.provision
+  u.provision(auto_wemux_mode)
 rescue LsPair::Exception => e
   puts e.message
 end
