@@ -16,7 +16,8 @@ end
 username = ARGV[0] || prompt_for_username
 
 begin
-  LsPair::LocalUser.new(username).provision
+  u = LsPair::LocalUser.new(username)
+  u.provision
 rescue LsPair::Exception => e
   puts e.message
 end
