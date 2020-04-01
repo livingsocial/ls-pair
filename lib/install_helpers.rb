@@ -48,11 +48,13 @@ end
 
 # Symlink our tmux configuration file into the user's home directory
 def symlink_tmux_conf_into_home
-  tmux_conf = Paths.home + '.tmux.conf'
-  if File.exist?(tmux_conf) && !File.symlink?(tmux_conf)
-    announce "Unable to symlink tmux.conf into your home directory.  (Apparently you've already got one.)"
+  tmux_conf       = Paths.home + '.tmux.conf'
+  tmux_conf_local = Paths.home + '.tmux.conf.local'
+  if real_file_exists?(tmux_conf) || real_file_exists?(tmux_conf_local)
+    announce "You already have a .tmux.conf and/or .tmux.conf.local file.  Skipping the part where we symlink those..."
   else
-    FileUtils.ln_sf Paths.root + 'tmux.conf', tmux_conf
+    FileUtils.ln_sf Paths.root + 'tmux.conf',       tmux_conf
+    FileUtils.ln_sf Paths.root + 'tmux.conf.local', tmux_conf_local
   end
 end
 
@@ -101,4 +103,8 @@ def toggle_vim_config
     FileUtils.ln_sf Paths.vimconfig + "vim", dot_vim
     FileUtils.ln_sf Paths.vimconfig + "vimrc", dot_vimrc
   end
+end
+
+def real_file_exists?(path)
+  File.exist?(path) && !File.symlink?(path)
 end

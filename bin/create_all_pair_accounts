@@ -18,9 +18,10 @@ begin
   end
   print "(c)ontinue or (A)bort?: "
   if gets.strip =~ /^c(ontinue)?$/i
-    users.each do |u|
-      LsPair::LocalUser.new(u).provision
-      puts "Account provisioned for #{u}."
+    users.each do |username|
+      u = LsPair::LocalUser.new(username)
+      u.provision
+      puts "Account provisioned for #{username}."
     end
   end
 rescue LsPair::Exception => e

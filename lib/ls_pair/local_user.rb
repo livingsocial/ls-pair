@@ -1,6 +1,7 @@
 require 'ls_pair/directory_service'
 require 'ls_pair/filesystem'
 require 'ls_pair/ssh_keys'
+require 'ls_pair/wemux_command'
 
 module LsPair
   class LocalUser
@@ -9,11 +10,12 @@ module LsPair
       @username = username
     end
 
-    def provision
+    def provision(auto_wemux_mode = "pair")
       ensure_ssh_key_exists
       ensure_user_exists
       set_up_ssh_dir
       set_home_dir_permissions
+      set_auto_wemux_command auto_wemux_mode
     rescue LsPair::SshKeys::NoPublicKeyForUser => e
       puts e.message
     end
@@ -30,6 +32,10 @@ module LsPair
 
     def ssh_keys
       @options[:ssh_keys] || SshKeys.new
+    end
+
+    def wemux_command
+      @options[:wemux_command] || WemuxCommand.new
     end
 
     def home_dir
@@ -63,6 +69,14 @@ module LsPair
     def set_home_dir_permissions
       filesystem.chmod(0755, home_dir)
       filesystem.chown_R(@username, 'staff', home_dir)
+    end
+
+    def set_auto_wemux_command(mode)
+      wemux_command.set_auto_wemux_command(
+        mode,
+        filesystem: filesystem,
+        home_dir:   home_dir
+      )
     end
   end
 end

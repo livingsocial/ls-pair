@@ -1,0 +1,5 @@
+# This is where you can put custom tmux config commands that you don't
+# necessarily want to be part of the base config provided by ls-pair.
+
+# For example, if you prefer 0-based indexing, uncomment the following:
+# set -g base-index 0
